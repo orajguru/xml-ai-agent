@@ -3,8 +3,10 @@ from openai import OpenAI
 
 class AIEngine:
     def __init__(self):
-        self.openai_key = st.secrets.get("OPENAI_API_KEY", None)
-        self.grok_key = st.secrets.get("GROK_API_KEY", None)
+        #self.openai_key = st.secrets.get("OPENAI_API_KEY", None)
+        #self.grok_key = st.secrets.get("GROK_API_KEY", None)
+        self.grok_key = st.secrets.get("groq", {}).get("key")
+        self.openai_key = st.secrets.get("openai", {}).get("key")
         
         # OpenAI client (defaults to OpenAI endpoint)
         self.openai_client = OpenAI(api_key=self.openai_key) if self.openai_key else None
@@ -78,3 +80,4 @@ class AIEngine:
                 return "❌ Both OpenAI and Grok failed. Check your API keys."
     
         return "❌ No valid AI model available. Please configure API keys."
+
