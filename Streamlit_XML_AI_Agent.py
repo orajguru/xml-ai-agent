@@ -6,6 +6,10 @@ import os
 from datetime import datetime
 
 st.sidebar.title("🔧 AI Configuration")
+status_box = st.sidebar.empty()
+st.set_page_config(page_title="XML AI Mapper", page_icon="🤖", layout="wide")
+st.title("🔍 XML Field Mapper (AI Powered)")
+st.caption("Upload → Clean → Compare → Ask AI → Export")
 
 try:
     from ai_engine import AIEngine
@@ -51,9 +55,9 @@ else:
             st.sidebar.error("🔴 Grok Failed")
 
 
-st.set_page_config(page_title="XML AI Mapper", page_icon="🤖", layout="wide")
-st.title("🔍 XML Field Mapper (AI Powered)")
-st.caption("Upload → Clean → Compare → Ask AI → Export")
+#st.set_page_config(page_title="XML AI Mapper", page_icon="🤖", layout="wide")
+#st.title("🔍 XML Field Mapper (AI Powered)")
+#st.caption("Upload → Clean → Compare → Ask AI → Export")
 
 # Show which AI engine is active (if ai_engine exists)
 #if llm and getattr(llm, "active_model", None):
