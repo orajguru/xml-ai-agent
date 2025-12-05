@@ -70,7 +70,7 @@ class AIEngine:
         if self.grok_client:
             try:
                 response = self.grok_client.chat.completions.create(
-                    model="grok-4-0709",
+                    model="llama-3.1-8b-instant",
                     messages=[{"role": "user", "content": prompt}]
                 )
                 self.active_model = "xAI Grok-4-0709"
@@ -80,4 +80,5 @@ class AIEngine:
                 return "❌ Both OpenAI and Grok failed. Check your API keys."
     
         return "❌ No valid AI model available. Please configure API keys."
+
 
