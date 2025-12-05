@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+from groq import Groq
 
 class AIEngine:
     def __init__(self):
@@ -79,6 +80,7 @@ class AIEngine:
                 return "❌ Both OpenAI and Grok failed. Check your API keys."
     
         return "❌ No valid AI model available. Please configure API keys."
+
 
 
 
