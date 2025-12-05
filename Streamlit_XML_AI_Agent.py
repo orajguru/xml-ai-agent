@@ -436,7 +436,10 @@ Cleaned XML:
                         st.error(ai_text)
                     else:
                         st.code(ai_text)
+                        status_box.empty()
+                        st.sidebar.success(f"🧠 Model in use: {llm.active_model}")
                 except Exception as e:
                     st.error(f"AI call error: {e}")
 
 st.caption("Built by IBL Digital Team • AI XML Mapping Assistant 🔧🚀")
+
