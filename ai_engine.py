@@ -12,10 +12,7 @@ class AIEngine:
         self.openai_client = OpenAI(api_key=self.openai_key) if self.openai_key else None
         
         # Grok client (OpenAI SDK with xAI base URL)
-        self.grok_client = (
-            OpenAI(api_key=self.grok_key, base_url="https://api.x.ai/v1")
-            if self.grok_key else None
-        )
+        self.grok_client = Groq(api_key=self.grok_key) if self.grok_key else None
         
         self.active_model = None
 
@@ -80,5 +77,6 @@ class AIEngine:
                 return "❌ Both OpenAI and Grok failed. Check your API keys."
     
         return "❌ No valid AI model available. Please configure API keys."
+
 
 
