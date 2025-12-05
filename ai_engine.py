@@ -73,13 +73,14 @@ class AIEngine:
                     model="llama-3.1-8b-instant",
                     messages=[{"role": "user", "content": prompt}]
                 )
-                self.active_model = "xAI Grok-4-0709"
+                self.active_model = "Groq - llama-3.1-8b-instant"
                 return response.choices[0].message.content
             except Exception as e:
                 # Return subtle message only if both failed
                 return "❌ Both OpenAI and Grok failed. Check your API keys."
     
         return "❌ No valid AI model available. Please configure API keys."
+
 
 
 
