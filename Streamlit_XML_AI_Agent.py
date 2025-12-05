@@ -10,11 +10,17 @@ st.sidebar.title("🔧 AI Configuration")
 try:
     from ai_engine import AIEngine
     llm = AIEngine()
-except Exception:
-    llm = None
+except Exception as e:
+    print("\n==== ERROR creating AIEngine ====")
+    print(repr(e))
+    print("=================================\n")
+    raise
 
-if llm is None:
-    st.sidebar.error("❌ AI engine not loaded.")
+if llm:
+    if llm.active_model:
+        status_box.success(f"🧠 Model in use: {llm.active_model}")
+    else:
+        status_box.info("ℹ️ AI engine has loaded. No model used yet.")
 else:
 
     # UI Helper to mask key
@@ -50,10 +56,10 @@ st.title("🔍 XML Field Mapper (AI Powered)")
 st.caption("Upload → Clean → Compare → Ask AI → Export")
 
 # Show which AI engine is active (if ai_engine exists)
-if llm and getattr(llm, "active_model", None):
-    st.sidebar.success(f"🧠 Model in use: {llm.active_model}")
-else:
-    st.sidebar.warning("⚠️ AI model not initialized yet.")
+#if llm and getattr(llm, "active_model", None):
+#   st.sidebar.success(f"🧠 Model in use: {llm.active_model}")
+#else:
+ #   st.sidebar.warning("⚠️ AI model not initialized yet.")
 
 # ------------------- Helper functions (correct algorithm) -------------------
 
