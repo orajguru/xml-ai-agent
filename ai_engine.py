@@ -73,7 +73,7 @@ class AIEngine:
                     model="llama-3.1-8b-instant",
                     messages=[{"role": "user", "content": prompt}]
                 )
-                self.active_model = "Groq - llama-3.1-8b-instant"
+                self.active_model = "Grok-2 (xAI)"
                 return response.choices[0].message.content
             except Exception as e:
                 # Return subtle message only if both failed
